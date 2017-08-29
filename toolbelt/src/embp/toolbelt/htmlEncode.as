@@ -30,6 +30,8 @@ package embp.toolbelt {
 		s = s.split("°").join("&deg;");
 		s = s.split('"').join("&quot;");
 		s = s.split("'").join("&#39;");
+		s = s.split("\n").join("&lt;br&gt;");
+		s = s.split("\r").join("&lt;br&gt;");
 		return s;
 	}
 }

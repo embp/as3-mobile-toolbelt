@@ -9,6 +9,7 @@ bin-release/
 .settings/
 .idea
 *.iml
+unit-tests/libs/**/*.swc
 
 # Executables
 *.swf
