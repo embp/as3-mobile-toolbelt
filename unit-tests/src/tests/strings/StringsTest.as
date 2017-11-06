@@ -21,6 +21,12 @@ package strings {
 			assertEquals(str, "This is a ");
 		}
 
+		[Test(description="Truncates string, appending a custom string to the end")]
+		public function it_truncates_with_custom():void {
+			var str:String = stringTruncate(10, "This is a string", true, '???');
+			assertEquals(str, "This is a ???");
+		}
+
 		[Test(description="Returns longest string when both are under the limit")]
 		public function it_returns_longest_under_limit():void {
 			var str1:String = "This is string 1";
@@ -129,14 +135,29 @@ package strings {
 		public function it_returns_true_if_target_string_found_in_source_string():void {
 			var targetString:String = "path";
 			var sourceString:String = "This is the path";
-			assertTrue(containsString(sourceString, targetString));
+			assertTrue(containsString(sourceString, targetString, false));
 		}
 
 		[Test(description="Returns false if target string is not found in source string")]
 		public function it_returns_false_if_target_string_not_found_in_source_string():void {
 			var targetString:String = "yesterday";
 			var sourceString:String = "This is the path";
+			assertFalse(containsString(sourceString, targetString, false));
+		}
+
+		[Test(description="Returns true if target string is found in source string and ignoreCase is true")]
+		public function it_returns_true_if_target_string_found_in_source_string_with_ignoreCase_true():void {
+			var targetString:String = "Path";
+			var sourceString:String = "This is the path";
+			assertTrue(containsString(sourceString, targetString));
+		}
+
+		[Test(description="Returns false if target string is not found in source string and ignoreCase is true")]
+		public function it_returns_false_if_target_string_not_found_in_source_string_with_ignoreCase_true():void {
+			var targetString:String = "something";
+			var sourceString:String = "This is the path";
 			assertFalse(containsString(sourceString, targetString));
 		}
+
 	}
 }
