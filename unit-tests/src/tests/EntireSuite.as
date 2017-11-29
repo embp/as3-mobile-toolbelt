@@ -1,5 +1,7 @@
 package
 {
+	import date.DatesTest;
+
 	import strings.StringsTest;
 
 	[Suite]
@@ -7,5 +9,6 @@ package
 	public class EntireSuite
 	{
 		public var stringsSuite:StringsTest;
+		public var datesSuite:DatesTest;
 	}
 }
